@@ -22,3 +22,25 @@ help title
 doc linspace
 doc size
 doc max
+
+%% Complementary Task
+
+% SLast digit of Student ID
+N = 2;
+
+% Creating Vector
+v = (N+1):0.5:(N+4);
+
+% Creating 3x3 matrix
+A = [N   N+1 N+2;
+     N+3 N+4 N+5;
+     N+6 N+7 N+8];
+
+% Selecting green spaces
+first_diagram = A(3,2);
+second_diagram = A(2:3,1:2);
+third_diagram = A([1 3],[1 3]);
+
+% Concatenate matrix A with the vector
+v_modified = v(1:3);
+combined = [A; v_modified];
