@@ -1,6 +1,7 @@
 % Azar Taghizade
 % EDIfu-25/2
 % 14.09.2026
+% https://github.com/azariento/Script-Programming-Laboratory-Works/commit/1f67258b81989140e0eb0e1fd7715899f4e39acb
 
 %% Mandatory Task
 
