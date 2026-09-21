@@ -1,16 +1,17 @@
 % Azar Taghizade
 % Variant 2
 % 21.09.2026
-
+%% Task1
 v1 = (-pi/2:0.5:3*pi)';
 v2 = v1 .^ 2;
 v3 = sin (v1 + v2);
 disp(v3');
-
+%% Task 2
 Z = rand(3,3);
 Z(2,: ) = [];
 Z = Z';
-
+disp(Z);
+%% Task 3
 t = 0:0.002:1.5;
 A = 4;
 f = 3;
@@ -34,6 +35,13 @@ number_selected = numel(selected_samples);
 minimum_voltage = min(s_filtered);
 maximum_voltage = max(s_filtered);
 
+disp(selected_samples);
+disp(s_filtered);
+disp(number_unfiltered);
+disp(number_selected);
+disp(minimum_voltage);
+disp(maximum_voltage);
+%% Complementary Task
 A = input('Enter vector A with 10 elements: ');
 
 indices = 1:10;
