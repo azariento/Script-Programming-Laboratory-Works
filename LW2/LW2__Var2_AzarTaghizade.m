@@ -33,3 +33,20 @@ number_selected = numel(selected_samples);
 
 minimum_voltage = min(s_filtered);
 maximum_voltage = max(s_filtered);
+
+A = input('Enter vector A with 10 elements: ');
+
+indices = 1:10;
+
+logical_first = indices >= 6;
+logical_second = indices <= 5;
+
+first_part = A(logical_first);
+first_part = first_part(end:-1:1);
+
+second_part = A(logical_second);
+
+B = [first_part second_part];
+
+disp('vector B is:');
+disp(B);
