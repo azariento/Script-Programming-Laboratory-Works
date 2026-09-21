@@ -11,3 +11,25 @@ Z = rand(3,3);
 Z(2,: ) = [];
 Z = Z';
 
+t = 0:0.002:1.5;
+A = 4;
+f = 3;
+sigma = 1;
+U1 = 2.5;
+U2 = 1.5;
+
+s = A .* sin(2*pi*f .* t);
+n = sigma .* randn(size(t));
+s_noisy = s + n;
+
+selected_samples = s_noisy(s_noisy > U1);
+
+s_filtered = s_noisy;
+s_filtered(abs(s_filtered) < U2) = 0;
+
+number_unfiltered = numel(s_noisy);
+
+number_selected = numel(selected_samples);
+
+minimum_voltage = min(s_filtered);
+maximum_voltage = max(s_filtered);
