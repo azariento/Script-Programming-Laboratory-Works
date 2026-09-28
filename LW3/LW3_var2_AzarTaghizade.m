@@ -1,0 +1,35 @@
+% Azar Taghizade
+% Variant 2
+% 28.09.2026
+
+%% Task 1
+x = 0:0.1:2*pi;
+f1 = x.^3 + tan(x);
+f2 = exp(x);
+f3 = exp(3 * x);
+f4 = exp(5 * x);
+
+figure(1);
+plot(x, f1, 'm-', 'LineWidth', 1.5);
+grid on;
+xlabel('x');
+ylabel('f_1(x)');
+title('f_1(x) = x^3 + tan(x)');
+axis([min(x) max(x) min(f1) max(f1)]);
+legend('f_1(x) = x^3 + tan(x)', 'Location', 'best');
+
+figure(2);
+plot(x, f2, 'b-o', ...
+     x, f3, 'r--s', ...
+     x, f4, 'g:^', ...
+     'LineWidth', 1.2);
+grid on;
+xlabel('x');
+ylabel('Function Value');
+title('Exponential Functions');
+axis([min(x) max(x) 0 max(f4)]);
+legend('f_2(x) = e^x', ...
+       'f_3(x) = e^{3x}', ...
+       'f_4(x) = e^{5x}', ...
+       'Location', 'northwest');
+
