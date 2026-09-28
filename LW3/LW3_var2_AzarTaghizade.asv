@@ -74,4 +74,3 @@ ylabel('Sum of exam marks');
 title('Total exam marks of each student');
 
 axis([0.5 numStudents + 0.5 0 max(totalMarks) + 2]);
-
