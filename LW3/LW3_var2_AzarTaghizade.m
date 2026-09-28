@@ -75,3 +75,92 @@ title('Total exam marks of each student');
 
 axis([0.5 numStudents + 0.5 0 max(totalMarks) + 2]);
 
+
+%% Complementary Task
+
+t = 0:0.002:1.5;
+A = 4;
+f = 3;
+sigma = 1;
+U1 = 2.5;
+U2 = 1.5;
+
+s = A .* sin(2*pi*f .* t);
+n = sigma .* randn(size(t));
+s_noisy = s + n;
+
+s_filtered = s_noisy;
+s_filtered(abs(s_filtered) < U2) = 0;
+
+above_U1 = s_noisy > U1;
+
+maximum_voltage = max(s_noisy);
+minimum_voltage = min(s_noisy);
+
+max_locations = s_noisy == maximum_voltage;
+min_locations = s_noisy == minimum_voltage;
+
+figure;
+
+subplot(2,2,1);
+
+plot(t, s_noisy, 'k-', 'DisplayName', 'Original signal');
+hold on;
+
+plot(t, s_filtered, 'b:', 'DisplayName', 'Filtered signal');
+
+yline(U1, '-', 'U_1', 'DisplayName', 'U_1');
+yline(U2, 'r--', 'U_2', 'DisplayName', 'U_2');
+
+grid on;
+
+xlabel('Time (s)');
+ylabel('Voltage (V)');
+title('Original and Filtered Signals');
+
+legend('Location', 'southeast');
+
+xlim([min(t) max(t)]);
+
+y_min_1 = min([s_noisy, s_filtered, U1, U2]);
+y_max_1 = max([s_noisy, s_filtered, U1, U2]);
+
+ylim([y_min_1 - 0.5, y_max_1 + 0.5]);
+
+hold off;
+
+subplot(2,1,2);
+
+stem(t(above_U1), s_noisy(above_U1), ...
+    'DisplayName', 'Samples above U_1');
+
+hold on;
+
+plot(t(max_locations), s_noisy(max_locations), ...
+    'o', ...
+    'MarkerSize', 8, ...
+    'LineStyle', 'none', ...
+    'DisplayName', 'Maximum voltage');
+
+plot(t(min_locations), s_noisy(min_locations), ...
+    'gd', ...
+    'MarkerSize', 8, ...
+    'LineStyle', 'none', ...
+    'DisplayName', 'Minimum voltage');
+
+grid on;
+
+xlabel('Time (s)');
+ylabel('Voltage (V)');
+title('Original Signal Samples Exceeding U_1');
+
+legend('Location', 'southeast');
+
+xlim([min(t) max(t)]);
+
+y_min_2 = min([s_noisy(above_U1), minimum_voltage, maximum_voltage]);
+y_max_2 = max([s_noisy(above_U1), minimum_voltage, maximum_voltage]);
+
+ylim([y_min_2 - 0.5, y_max_2 + 0.5]);
+
+hold off;
