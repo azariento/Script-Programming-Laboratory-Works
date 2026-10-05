@@ -93,7 +93,7 @@ contourHandle.ZLocation = -8;
 
 hold off;
 
-%zlim([-8.5 1.5]);
+zlim([-8.5 1.5]);
 colormap(parula);
 view(45, 30);
 
