@@ -59,3 +59,61 @@ title('Task 1(b): f(x,y) = sin(x^2 + y^2)');
 
 grid on;
 
+%% Complementary Task
+%% a)
+
+x = -2:0.05:2;
+y = -2:0.05:2;
+
+[X, Y] = meshgrid(x, y);
+Z = 1 - (X.^2 + Y.^2);
+
+figure(1);
+surf(X, Y, Z, 'FaceColor', [0 0 1], ...
+     'EdgeColor', 'none');
+
+view(45, 30);
+camlight('headlight');
+lighting gouraud;
+
+xlabel('x');
+ylabel('y');
+zlabel('z');
+title('a) Surface with camlight');
+grid on;
+
+%% b)
+
+figure(2);
+surf(X, Y, Z, 'EdgeColor', 'none');
+hold on;
+
+[~, contourHandle] = contour(X, Y, Z, 12, 'k', 'LineWidth', 1);
+contourHandle.ZLocation = -8;
+
+hold off;
+
+%zlim([-8.5 1.5]);
+colormap(parula);
+view(45, 30);
+
+xlabel('x');
+ylabel('y');
+zlabel('z');
+title('b) Surface with contour');
+grid on;
+
+%% c)
+
+figure(3);
+s = surf(X, Y, Z, 'FaceColor', [0.20 0.70 0.85], ...
+         'EdgeColor', 'none');
+
+alpha(s, 0.45);
+view(45, 30);
+
+xlabel('x');
+ylabel('y');
+zlabel('z');
+title('c) Semitransparent surface');
+grid on;
