@@ -35,3 +35,20 @@ students(2).examResults(1, 2) = 10;
 
 disp('Student 2 exam results after editing:');
 disp(students(2).examResults);
+
+%% Task 2
+format bank;
+
+loanSizes = (10000:1000:20000)';
+rates = [0.10 0.15 0.20];
+
+loanTable = zeros(length(loanSizes), 4);
+
+loanTable(:, 1) = loanSizes;
+
+for k = 1:3
+    loanTable(:, k+1) = loanSizes * rates(k);
+end
+
+disp('      Loan(EUR)    Bank 1 (10%)  Bank 2 (15%)  Bank 3 (20%)');
+disp(loanTable);
