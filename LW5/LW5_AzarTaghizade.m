@@ -52,3 +52,30 @@ end
 
 disp('      Loan(EUR)    Bank 1 (10%)  Bank 2 (15%)  Bank 3 (20%)');
 disp(loanTable);
+
+%% Complementary Task
+clc;
+
+x = input('Enter number of rows (x): ');
+y = input('Enter number of columns (y): ');
+
+for k = 1:20
+    
+    if x == 0
+        break;
+    end
+
+    if y == 0
+        break;
+    end
+    m = randi(x);
+    n = randi(y);
+
+    A = zeros(x, y);
+    A(m, n) = NaN;
+
+    disp(A);
+
+    pause(1);
+    clc;
+end
